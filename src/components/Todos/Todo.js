@@ -3,13 +3,16 @@ import { RiTodoFill, RiDeleteBin2Line } from "react-icons/ri";
 import { FaCheck } from "react-icons/fa";
 
 function Todo(props) {
-  const { todo } = props;
+  const { todo, deleteTodo } = props;
 
   return (
     <div className={styles.todo}>
       <RiTodoFill className={styles.todoIcon} />
-      <div className={styles.todoText}>{todo}</div>
-      <RiDeleteBin2Line className={styles.deleteIcon} />
+      <div className={styles.todoText}>{todo.text}</div>
+      <RiDeleteBin2Line
+        className={styles.deleteIcon}
+        onClick={() => deleteTodo(todo.id)}
+      />
       <FaCheck className={styles.checkIcon} />
     </div>
   );
