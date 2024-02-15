@@ -2,7 +2,7 @@ import Todo from "./Todo";
 import styles from './TodoList.module.css';
 
 function TodoList(props) {
-  const { todos, deleteTodo } = props;
+  const { todos, deleteTodo, toggleTodo } = props;
 
   return (
     <div className={styles.todoListContainer}>
@@ -11,7 +11,8 @@ function TodoList(props) {
         <Todo
         key={todo.id}
         todo={todo}
-        deleteTodo={deleteTodo} />
+        deleteTodo={deleteTodo}
+        toggleTodo={toggleTodo} />
       ))}
     </div>
   );
