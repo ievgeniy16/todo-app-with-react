@@ -41,6 +41,21 @@ function App() {
 
   const completedTodosCount = todos.filter((todo) => todo.isCompleted).length;
 
+  let updateTodo = (id, newTodo) => {
+    // let updatedTodo = { ...todo, text: newTodo, isCompleted: false };
+    setTodos(todos.map((t => {
+      return t.id === id 
+      ? {...t, text: newTodo}
+      : {...t}
+
+    })));
+  };
+  // let updateTodo = (id, newTodo) => {
+  //   let todo = todos[id];
+  //   let updatedTodo = { ...todo, text: newTodo, isCompleted: false };
+  //   setTodos(todos.map((t) => (t.id === id ? updatedTodo : t)));
+  // };
+
   return (
     <div className="App">
       <h1>Todo App</h1>
@@ -54,6 +69,7 @@ function App() {
         todos={todos}
         deleteTodo={deleteTodoHandler}
         toggleTodo={toggleTodoHandler}
+        updateTodo={updateTodo}
       />
       {completedTodosCount > 0 && (
         <p>{`You have completed ${completedTodosCount} ${
